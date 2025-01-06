@@ -5,17 +5,17 @@ const Footer = () => {
     return ( 
         <footer className='footer'>
             <div>
-                <NavLink to="/">
-                    <img src="../../../public/svg/Home.svg" alt="Home" />
+                <NavLink to="/home">
+                    <img src="/svg/Home.svg" alt="Home" />
                 </NavLink>
                 <NavLink to="/favourite">
-                    <img src="../../../public/svg/Favourite.svg" alt="Favourite" />
+                    <img src="/svg/Favourite.svg" alt="Favourite" />
                 </NavLink>
                 <NavLink to="/save">
-                    <img src="../../../public/svg/Save.svg" alt="Save" />
+                    <img src="/svg/Save.svg" alt="Save" />
                 </NavLink>
                 <NavLink to="/profile">
-                    <img src="../../../public/svg/Profile.svg" alt="Profile" />
+                    <img src="/svg/Profile.svg" alt="Profile" />
                 </NavLink>
             </div>
         </footer>

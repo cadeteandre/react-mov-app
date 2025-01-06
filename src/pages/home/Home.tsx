@@ -3,6 +3,7 @@ import GenreButton from "../../components/genreButton/GenreButton";
 import "./Home.css";
 import getAllGenres from "../../utils/fetches/getAllGenres";
 import { IGenres } from '../../../interfaces/IGenres';
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
 
@@ -28,6 +29,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </>
     );
 }

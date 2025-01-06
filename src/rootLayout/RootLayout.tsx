@@ -1,14 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import Intro from "../pages/intro/Intro";
+import Loader from "../components/loader/Loader";
 
 const RootLayout = () => {
 
-    const [goHome, setGoHome] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        const timer = setTimeout(() => setIsLoading(false), 3000);
+        return () => clearTimeout(timer);
+    }, []);
 
     return ( 
         <>
-            {!goHome ? <Intro setGoHome={setGoHome} /> : <Outlet />}
+        {""}
+        {isLoading ? (<Loader />) : (
+            <>
+                <main className="outlet">
+                    <Outlet />
+                </main>
+            </>
+        )}
         </>
     );
 }
