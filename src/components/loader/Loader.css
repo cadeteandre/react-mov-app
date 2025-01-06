@@ -1,0 +1,22 @@
+.splash-loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.splash-loader .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+.loader-container h1 {
+    font-family: 'Poppins';
+    font-size: 3rem;
+    text-align: center;  
+    margin-bottom: 40px; 
+} */
