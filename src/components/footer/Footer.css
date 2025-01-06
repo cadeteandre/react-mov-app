@@ -1,0 +1,11 @@
+.footer{
+    display: flex;
+    justify-content: center;
+}
+
+.footer div{
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    width: 15vw;
+}
