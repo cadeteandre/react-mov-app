@@ -5,6 +5,8 @@ import Home from './pages/home/Home'
 import Genres from './pages/genres/Genres'
 import Detail from './pages/detail/Detail'
 
+export const BASE_URL = 'https://api.themoviedb.org/3/';
+
 function App() {
 
   const router = createBrowserRouter(
