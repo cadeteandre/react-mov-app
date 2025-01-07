@@ -48,7 +48,9 @@ const Home = () => {
             <input type="text" placeholder="Search Movie ..." />
             <div className="genres__container">
                 {genre?.genres.map((genre) => (
-                    <GenreButton key={genre.id} genreName={genre.name}/>
+                    <Link to={`/home/genre/${genre.id}`}>
+                        <GenreButton key={genre.id} genreName={genre.name}/>
+                    </Link>
                 ))}
             </div>
             <section className="trending__movies">
