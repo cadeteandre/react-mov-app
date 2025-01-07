@@ -6,7 +6,18 @@
     padding: 10px;
 }
 
-.carousel__trending {
-    border: 1px solid #000;
-    border-radius: 10px;
+.carousel-item {
+    width: 373px; 
+    height: 269px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    border-radius: 16px;
+}
+
+.carousel-item img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 16px;
 }
