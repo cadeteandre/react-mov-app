@@ -5,7 +5,7 @@ import getAllGenres from "../../utils/fetches/getAllGenres";
 import { IGenres } from '../../../interfaces/IGenres';
 import Footer from "../../components/footer/Footer";
 import { ITrendingMovies } from '../../../interfaces/ITrendingMovies';
-import getTrendingMovies from "../../utils/fetches/getTrengingMovies";
+import getTrendingMovies from "../../utils/fetches/getTrendingMovies";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
