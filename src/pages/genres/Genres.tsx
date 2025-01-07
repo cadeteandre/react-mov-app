@@ -1,9 +1,14 @@
+import { IMovie } from "../../../interfaces/IMove";
 import Footer from "../../components/footer/Footer";
 import MovieList from "../../components/movieList/MovieList";
 import SearchBar from "../../components/searchBar/SearchBar";
 import "./Genres.css";
 
-const Genres = () => {
+interface GenreProps{
+    movies: IMovie[]
+}
+
+const Genres:React.FC<GenreProps> = ({movies}) => {
     return (  
         <>
             <SearchBar/>
@@ -13,7 +18,7 @@ const Genres = () => {
                 <button>3</button>
             </div>
             <section>
-                <MovieList/>
+                <MovieList movies={movies}/>
             </section>
             <Footer/>
         </>
