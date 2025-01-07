@@ -1,31 +1,44 @@
-import { IMovie } from '../../../interfaces/IMove';
+import { IMovieByID } from '../../../interfaces/IMovieByID';
 import './MovieItem.css'
 
 interface PropsItem {
-    item: IMovie
+    movie: IMovieByID
 }
 
-const MovieItem: React.FC<PropsItem> = ({item}) => {
+const convertRuntime = (minutes: number) => { 
+    const hours = Math.floor(minutes / 60); 
+    const remainingMinutes = minutes % 60; 
+    return `${hours}h ${remainingMinutes}m`; 
+}; 
+
+const MovieItem: React.FC<PropsItem> = ({ movie }) => {
     return ( 
         <article>
             <div>
-                <img src={item.poster_path} alt="" />
+                <img
+                    src={
+                    movie.poster_path
+                        ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+                        : "https://via.placeholder.com/200x300?text=No+Image"
+                    }
+                    alt={`${movie.original_title} poster`}
+                />
                 <div>
                     <div>
-                        <h3>{item.title}</h3>
+                        <h3>{movie.title}</h3>
                         <img src="/svg/Favourite.svg" alt="" />
                     </div>
                     <div>
                         <div>
-                        <img src="/images/RatingStar.png" alt="" />
-                        <p>rating</p>
+                            <img src="/images/RatingStar.png" alt="" />
+                            <p>{movie.vote_average.toFixed(1)}</p>
                         </div>
                         <p>•</p>
-                        <p>{`${item.release_date}`}</p>
+                        <p>{`${movie.release_date}`}</p>
                         <p>•</p>
-                        <p>genre</p>
+                        <p>{movie.genres.map((genre) => genre.name).join(', ')}</p>
                         <p>•</p>
-                        <p>length</p>
+                        <p>{convertRuntime(movie.runtime)}</p>
                     </div>
                 </div>
             </div>
