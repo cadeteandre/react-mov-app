@@ -9,6 +9,7 @@ import getTrendingMovies from "../../utils/fetches/getTrendingMovies";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import SearchBar from "../../components/searchBar/SearchBar";
 
 const responsive = {
     superLargeDesktop: {
@@ -45,7 +46,7 @@ const Home = () => {
     return (  
         <>
             <h1>Welcome!</h1>
-            <input type="text" placeholder="Search Movie ..." />
+            <SearchBar />
             <div className="genres__container">
                 {genre?.genres.map((genre) => (
                     <Link to={`/home/genre/${genre.id}`}>
