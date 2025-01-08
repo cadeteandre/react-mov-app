@@ -17,21 +17,30 @@ const Genres:React.FC = () => {
 
     const [moviesByID, setMoviesByID] = useState<IMovieByID[] | null>(null);
     const [genre, setGenre] = useState<IGenres | null>(null);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
         getAllGenres(setGenre);
     }, [])
 
     useEffect(() => {
-        if(genreID) getMoviesByGenre(Number(genreID), setMoviesByID);
-    }, [genreID])
+        if(genreID) getMoviesByGenre(Number(genreID), setMoviesByID, currentPage, setTotalPages);
+    }, [genreID, currentPage])
+
+    const handlePageChange = (page: number) => {
+        if (page > 0 && page <= totalPages) {
+            setCurrentPage(page);
+        }
+    };
+    
 
     return (  
         <>
             <SearchBar/>
             <div className="genres__container">
                 {genre?.genres.map((genre) => (
-                    <Link key={genre.id} to={`/home/genre/${genre.id}`}>
+                    <Link onClick={() => setCurrentPage(1)} key={genre.id} to={`/home/genre/${genre.id}`}>
                         <GenreButton genreName={genre.name}/>
                     </Link>
                 ))}
@@ -45,6 +54,15 @@ const Genres:React.FC = () => {
                     ))
                 }
             </section>
+            <div className="pagination">
+                <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
+                    Previous
+                </button>
+                <span>Page {currentPage} of {totalPages}</span>
+                <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
+                Next
+                </button>
+            </div>
             <Footer/>
         </>
     );
