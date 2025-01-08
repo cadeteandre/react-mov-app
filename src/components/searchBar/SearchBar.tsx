@@ -1,25 +1,19 @@
 import { Link } from 'react-router-dom';
-import { API_KEY } from '../../utils/fetches/getAllGenres';
 import './SearchBar.css'
 
 import React, { useState, useEffect } from 'react';
+import { ITrendingMovie } from '../../../interfaces/ITrendingMovies';
+import fetchMovies from '../../utils/fetches/fetchMovies';
 
 const SearchBar = () => {
     const [query, setQuery] = useState('');
-    const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = useState<ITrendingMovie[]>([]);
 
     useEffect(() => {
         if (query) {
-            fetchMovies(query);
+            fetchMovies(query, setMovies);
         }
     }, [query]);
-
-    const fetchMovies = async (searchQuery: string) => {
-        //const API_KEY = 'VITE_API_KEY';
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`);
-        const data = await response.json();
-        setMovies(data.results);
-    };
     
     const removeSearch = () => {
         setQuery('');
@@ -32,17 +26,17 @@ const SearchBar = () => {
     return (
         <>
             <div className="search-box">
-                <input type="text" placeholder="Search Movies by Title" onChange={handleSearch} />
+                <input value={query} type="text" placeholder="Search Movies by Title" onChange={handleSearch} />
             </div>
-            <div className="movie-results">
-                {movies.map((movie: any) => (
+            {query.length > 0 && <div className="movie-results">
+                {movies.map((movie: ITrendingMovie) => (
                     <div key={movie.id}>
                         <Link onClick={removeSearch} to={`/detail/${movie.id}`}>
                             <h2>{movie.title}</h2>
                         </Link>
                     </div>
                 ))}
-            </div>
+            </div>}
         </>
     );
 }
