@@ -49,8 +49,8 @@ const Home = () => {
             <SearchBar />
             <div className="genres__container">
                 {genre?.genres.map((genre) => (
-                    <Link to={`/home/genre/${genre.id}`}>
-                        <GenreButton key={genre.id} genreName={genre.name}/>
+                    <Link key={genre.id} to={`/home/genre/${genre.id}`}>
+                        <GenreButton genreName={genre.name}/>
                     </Link>
                 ))}
             </div>

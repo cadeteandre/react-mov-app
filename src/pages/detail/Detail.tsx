@@ -4,6 +4,7 @@ import { IMovieByID } from '../../../interfaces/IMovieByID';
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getMoviesByID from "../../utils/fetches/getMoviesByID";
+import getMovieTrailer from "../../utils/fetches/getMovieTrailer";
 
 const convertRuntime = (minutes: number) => { 
     const hours = Math.floor(minutes / 60); 
@@ -14,10 +15,15 @@ const convertRuntime = (minutes: number) => {
 const Detail: React.FC = () => {
     const { movieID } = useParams();
     const [movieByID, setMovieByID] = useState<IMovieByID | null>(null);
+    const [trailerKey, setTrailerKey] = useState<string | null>(null);
 
     useEffect(() => {
         if(movieID) getMoviesByID(setMovieByID, movieID);
     }, [movieID]);
+
+    useEffect(() => {
+        if(movieByID) getMovieTrailer(movieByID.id, setTrailerKey)
+    }, [movieByID])
 
     return (  
         <>
@@ -56,7 +62,7 @@ const Detail: React.FC = () => {
                         <p>{movieByID.spoken_languages.map((language) => language.name).join(', ')}</p>
                     </div>
 
-                    <a href="https://youtube.com" target="_blank">
+                    <a href={`https://youtube.com/watch?v=${trailerKey ? trailerKey : ''}` }target="_blank">
                         <button>Watch Trailer</button> 
                     </a>
                 </section>

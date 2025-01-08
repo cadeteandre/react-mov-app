@@ -32,15 +32,15 @@ const Genres:React.FC = () => {
             <div className="genres__container">
                 {genre?.genres.map((genre) => (
                     <Link key={genre.id} to={`/home/genre/${genre.id}`}>
-                        <GenreButton key={genre.id} genreName={genre.name}/>
+                        <GenreButton genreName={genre.name}/>
                     </Link>
                 ))}
             </div>
             <section className='movie-list'>
                 {
                     moviesByID?.map((movie) => (
-                        <Link to={`/detail/${movie.id}`}>
-                            <MovieItem key={movie.id} movie={movie} />
+                        <Link key={movie.id} to={`/detail/${movie.id}`}>
+                            <MovieItem movie={movie} />
                         </Link>
                     ))
                 }
