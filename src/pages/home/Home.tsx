@@ -57,7 +57,6 @@ const Home = () => {
             <section className="trending__movies">
                 <div className="trending__header">
                     <h3>Trending Movies</h3>
-                    <p>See all</p>
                     <div className="carousel__trending">
                         {trendingMovie?.results && trendingMovie.results.length > 0 ? (
                             <Carousel
@@ -65,22 +64,24 @@ const Home = () => {
                             infinite={true}
                             autoPlay={true}
                             autoPlaySpeed={3000}
-                            // showDots={true}
+                            showDots={true}
+                            containerClass="carousel-container"
+                            dotListClass="custom-dot-list"
                             itemClass="carousel-item"
-                            >
-                            {trendingMovie.results.map((movie) => (
-                                <Link key={movie.id} to={`/detail/${movie.id}`}>
-                                    <img
-                                        src={
-                                        movie.poster_path
-                                            ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
-                                            : "https://via.placeholder.com/200x300?text=No+Image"
-                                        }
-                                        alt={`${movie.original_title} poster`}
-                                    />
-                                </Link>
-                            ))}
-                            </Carousel>
+                        >
+                        {trendingMovie.results.map((movie) => (
+                            <Link key={movie.id} to={`/detail/${movie.id}`}>
+                                <img
+                                    src={
+                                    movie.poster_path
+                                        ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+                                        : "https://via.placeholder.com/200x300?text=No+Image"
+                                    }
+                                    alt={`${movie.original_title} poster`}
+                                />
+                            </Link>
+                        ))}
+                        </Carousel>
                         ) : (
                             <p>Loading movies...</p>
                         )}
