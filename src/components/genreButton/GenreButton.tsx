@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "./GenreButton.css";
 
 interface Props {
@@ -6,11 +6,11 @@ interface Props {
 }
 
 const GenreButton: React.FC<Props> = ({ genreName }) => {
-    const [activeButton, setActiveButton] = useState(false);
+    // const [activeButton, setActiveButton] = useState(false);
 
-    
+
     return (  
-        <button className={`genre__button ${activeButton ? 'activeBtn' : ''}`} onClick={() => setActiveButton(true)}>{genreName}</button>
+        <button className={`genre__button`}>{genreName}</button>
     );
 }
 
