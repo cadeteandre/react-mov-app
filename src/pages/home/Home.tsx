@@ -52,7 +52,7 @@ const Home = () => {
             <div className="genres__container">
                     {genre?.genres.map((genre) => (
                         <Link key={genre.id} to={`/home/genre/${genre.id}`}>
-                            <GenreButton genreName={genre.name}/>
+                            <GenreButton genreName={genre.name} />
                         </Link>
                     ))}
             </div>
