@@ -10,7 +10,6 @@ import { IGenres } from "../../../interfaces/IGenres";
 import getAllGenres from "../../utils/fetches/getAllGenres";
 import GenreButton from "../../components/genreButton/GenreButton";
 
-
 const Genres:React.FC = () => {
 
     const { genreID } = useParams();
@@ -33,7 +32,6 @@ const Genres:React.FC = () => {
             setCurrentPage(page);
         }
     };
-    
 
     return (  
         <>
@@ -66,7 +64,15 @@ const Genres:React.FC = () => {
                 </div>
                     
             </section>
-            
+            <div className="pagination">
+                <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
+                    Previous
+                </button>
+                <span>Page {currentPage} of {totalPages}</span>
+                <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
+                    Next
+                </button>
+            </div>
             <Footer/>
         </>
     );
