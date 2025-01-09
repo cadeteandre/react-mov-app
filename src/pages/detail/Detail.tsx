@@ -25,6 +25,8 @@ const Detail: React.FC = () => {
         if(movieByID) getMovieTrailer(movieByID.id, setTrailerKey)
     }, [movieByID])
 
+    const releaseYear = movieByID?.release_date ? new Date(movieByID.release_date).getFullYear() : "Unknown";
+
     return (  
         <>
             {movieByID ? (
@@ -49,7 +51,7 @@ const Detail: React.FC = () => {
                                         <p>{(movieByID.vote_average).toFixed(1)}</p>
                                     </div>
                                     <p>•</p>
-                                    <p>{`${movieByID.release_date}`}</p>
+                                    <p>{releaseYear}</p>
                                     <p>•</p>
                                     <p>{movieByID.genres.length > 0 ? movieByID.genres.slice(0, 1).map((genre) => genre.name).join(', ') : "Unknown"}</p>
                                     <p>•</p>
