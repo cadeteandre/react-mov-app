@@ -5,7 +5,7 @@ import "./Genres.css";
 import getMoviesByGenre from "../../utils/fetches/getMoviesByGenre";
 import { IMovieByID } from '../../../interfaces/IMovieByID';
 import MovieItem from "../../components/movieItem/MovieItem";
-import { Link, useParams } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import { IGenres } from "../../../interfaces/IGenres";
 import getAllGenres from "../../utils/fetches/getAllGenres";
 import GenreButton from "../../components/genreButton/GenreButton";
@@ -18,6 +18,7 @@ const Genres:React.FC = () => {
     const [genre, setGenre] = useState<IGenres | null>(null);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
+    const [showAllGenres, setShowAllGenres] = useState(false);
 
     useEffect(() => {
         getAllGenres(setGenre);
@@ -32,16 +33,26 @@ const Genres:React.FC = () => {
             setCurrentPage(page);
         }
     };
+    const toggleGenres = () => {
+        setShowAllGenres((prev) => !prev);
+    };
+
+    const displayedGenres = showAllGenres
+        ? genre?.genres
+        : genre?.genres.slice(0, 3);
 
     return (  
         <>
             <SearchBar/>
 
             <div className="genres__container">
-                {genre?.genres.map((genre) => (
-                    <Link onClick={() => setCurrentPage(1)} key={genre.id} to={`/home/genre/${genre.id}`}>
-                        <GenreButton genreName={genre.name}/>
-                    </Link>
+                <div className="all__genres__btn" onClick={toggleGenres}>
+                    <GenreButton genreName={showAllGenres ? 'Show Less' : 'All genres'} />
+                </div>
+                {displayedGenres?.map((genre) => (
+                    <NavLink onClick={() => setCurrentPage(1)} key={genre.id} to={`/home/genre/${genre.id}`}>
+                        <GenreButton genreName={genre.name} />
+                    </NavLink>
                 ))}
             </div>
 

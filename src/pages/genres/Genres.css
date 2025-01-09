@@ -45,3 +45,8 @@
     gap: 50px;
     justify-content: center;
 }
+
+.genres__container .active button, .all__genres__btn button {
+    background-color: #FC2121;
+    color: white;
+}
