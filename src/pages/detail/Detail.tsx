@@ -34,7 +34,7 @@ const Detail: React.FC = () => {
                             <img className="image-container"
                             src={
                                 movieByID.poster_path
-                                ? `https://image.tmdb.org/t/p/w200/${movieByID.poster_path}`
+                                ? `https://image.tmdb.org/t/p/w200/${movieByID.backdrop_path}`
                                 : "https://via.placeholder.com/200x300?text=No+Image"
                             }
                             alt={`${movieByID.title} poster`}

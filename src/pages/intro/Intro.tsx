@@ -9,7 +9,7 @@ const Intro: React.FC = () => {
                 <img src={image1} alt="image 1" />
             </div>
             <article>
-            <h1>Enjoy Your Movie<br/>Watch Everywhere</h1>
+            <h1 className="header-intro">Enjoy Your Movie<br/>Watch Everywhere</h1>
                 <p>Stream unlimited movies and TV shows<br/>on your phone, tablet, laptop, and TV.</p>
                 <Link to={'/home'}>
                 <button>Get Started</button>

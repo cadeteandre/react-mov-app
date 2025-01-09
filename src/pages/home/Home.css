@@ -6,10 +6,16 @@
     padding: 10px;
 }
 
+.home-heading{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
 /* Carousel */
 
 .carousel-container {
     padding-bottom: 40px;
+    margin-bottom: 100px;
 }
 
 .carousel-item {
@@ -27,7 +33,9 @@
     bottom: -20px;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 1px;
+    width: 95vw;
+    padding: 0 20px;
 }
 
 .custom-dot-list li {
@@ -43,6 +51,11 @@
     cursor: pointer;
     transition: background-color 0.3 ease;
 }
+
+.react-multi-carousel-dot{
+    margin-right: -2px;
+}
+
 
 .custom-dot-list li.react-multi-carousel-dot--active button {
     background-color: red; 
