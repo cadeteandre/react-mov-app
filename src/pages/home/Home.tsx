@@ -49,13 +49,16 @@ const Home = () => {
             <SearchBar />
 
                 
-            <div className="genres__container">
+                        <div className="scroll-container">
+                <div className="genres__container">
                     {genre?.genres.map((genre) => (
                         <Link key={genre.id} to={`/home/genre/${genre.id}`}>
                             <GenreButton genreName={genre.name} />
                         </Link>
                     ))}
+                </div>
             </div>
+
             <section className="trending__movies">
                 <div className="trending__header">
                     <h3><b>Trending Movies</b></h3>
