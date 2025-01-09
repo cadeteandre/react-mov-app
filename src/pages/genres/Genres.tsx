@@ -10,7 +10,6 @@ import { IGenres } from "../../../interfaces/IGenres";
 import getAllGenres from "../../utils/fetches/getAllGenres";
 import GenreButton from "../../components/genreButton/GenreButton";
 
-
 const Genres:React.FC = () => {
 
     const { genreID } = useParams();
@@ -33,7 +32,6 @@ const Genres:React.FC = () => {
             setCurrentPage(page);
         }
     };
-    
 
     return (  
         <>
@@ -60,7 +58,7 @@ const Genres:React.FC = () => {
                 </button>
                 <span>Page {currentPage} of {totalPages}</span>
                 <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
-                Next
+                    Next
                 </button>
             </div>
             <Footer/>
