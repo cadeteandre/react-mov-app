@@ -1,5 +1,7 @@
 import { IMovieByID } from '../../../interfaces/IMovieByID';
 import './MovieItem.css'
+import FavouriteIcon from '../../../public/svg/FavouriteIcon';
+import { useState } from 'react';
 
 interface PropsItem {
     movie: IMovieByID
@@ -13,6 +15,8 @@ const convertRuntime = (minutes: number) => {
 
 const MovieItem: React.FC<PropsItem> = ({ movie }) => {
     const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : "Unknown";
+    const [isFavourite, setIsFavourite] = useState<boolean>(false);
+
     return ( 
         <article className="movie-item">
 
@@ -29,7 +33,9 @@ const MovieItem: React.FC<PropsItem> = ({ movie }) => {
 
                 <div className="movie-item__header">
                     <h3 >{movie.title}</h3>
-                    <img className='fav' src="/svg/Favourite.svg" alt="Add to Favourites" />
+                    <div onClick={() => setIsFavourite(!isFavourite)}>
+                        <FavouriteIcon fill={isFavourite ? 'red' : 'none'} />
+                    </div>
                 </div>
 
                 <div className="movie-item__details">
