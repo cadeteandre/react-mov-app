@@ -12,6 +12,8 @@ const convertRuntime = (minutes: number) => {
 }; 
 
 const MovieItem: React.FC<PropsItem> = ({ movie }) => {
+
+    const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : "Unknown";
     return ( 
         <article className="movie-item">
 
@@ -41,7 +43,7 @@ const MovieItem: React.FC<PropsItem> = ({ movie }) => {
 
 
                     <p>•</p>
-                    <p>{`${movie.release_date}`}</p>
+                    <p>{releaseYear}</p>
                     <p>•</p>
                     <p>{movie.genres.length > 0 ? movie.genres.slice(0, 2).map((genre) => genre.name).join(", ") : "Unknown Genres"}</p>
                     <p>•</p>

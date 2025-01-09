@@ -48,11 +48,11 @@ const Home = () => {
             <h1>Welcome!</h1>
             <SearchBar />
             <div className="genres__container">
-                {genre?.genres.map((genre) => (
-                    <Link key={genre.id} to={`/home/genre/${genre.id}`}>
-                        <GenreButton genreName={genre.name}/>
-                    </Link>
-                ))}
+                    {genre?.genres.map((genre) => (
+                        <Link key={genre.id} to={`/home/genre/${genre.id}`}>
+                            <GenreButton genreName={genre.name} />
+                        </Link>
+                    ))}
             </div>
             <section className="trending__movies">
                 <div className="trending__header">
