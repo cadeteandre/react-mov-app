@@ -57,7 +57,6 @@ const Home = () => {
             <section className="trending__movies">
                 <div className="trending__header">
                     <h3>Trending Movies</h3>
-                    <p>See all</p>
                     <div className="carousel__trending">
                         {trendingMovie?.results && trendingMovie.results.length > 0 ? (
                             <Carousel

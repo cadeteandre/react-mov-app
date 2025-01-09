@@ -28,42 +28,53 @@ const Detail: React.FC = () => {
     return (  
         <>
             {movieByID ? (
-                <section>
-                    <h2>Movie Details</h2>
-                    <h1>{movieByID.title}</h1>
+                <section className="detail-section">
 
-                    <div>
-                        <div>
-                        <img
-                        src={
-                        movieByID.poster_path
-                            ? `https://image.tmdb.org/t/p/w200/${movieByID.poster_path}`
-                            : "https://via.placeholder.com/200x300?text=No+Image"
-                        }
-                        alt={`${movieByID.title} poster`}
-                    />
-                        <p>{(movieByID.vote_average).toFixed(1)}</p>
-                        </div>
-                        <p>•</p>
-                        <p>{`${movieByID.release_date}`}</p>
-                        <p>•</p>
-                        <p>•</p>
-                        <p>{convertRuntime(movieByID.runtime)}</p>
+                    <div className="centre-info">
+                            <img className="image-container"
+                            src={
+                                movieByID.poster_path
+                                ? `https://image.tmdb.org/t/p/w200/${movieByID.poster_path}`
+                                : "https://via.placeholder.com/200x300?text=No+Image"
+                            }
+                            alt={`${movieByID.title} poster`}
+                            />
+                            <div className="movie-info">
+                                <p>Movie Details</p>
+                                <h1>{movieByID.title}</h1>
+                                <div className="movie-info__div">
+
+                                    <div className="flex gap align">
+                                        <img className="star" src="/images/RatingStar.png" alt="star" />
+                                        <p>{(movieByID.vote_average).toFixed(1)}</p>
+                                    </div>
+                                    <p>•</p>
+                                    <p>{`${movieByID.release_date}`}</p>
+                                    <p>•</p>
+                                    <p>•</p>
+                                    <p>{convertRuntime(movieByID.runtime)}</p>
+                                </div>
+                            </div>
                     </div>
 
-                    <h3>Overview</h3>
+                    <div className="box">
+                        <h3>Overview</h3>
+                        <p>{movieByID.overview}</p>
+                        
+                        <div className="flex space-between m-small">
+                            <p className="font-weight">Genres</p>
+                            <p>{movieByID.genres.map((genre) => genre.name).join(', ')}</p>
+                        </div>
+                    
+                        <div className="flex space-between">
+                            <p className="font-weight">Languages</p>
+                            <p>{movieByID.spoken_languages.map((language) => language.name).join(', ')}</p>
+                        </div>
 
-                    <p>{movieByID.overview}</p>
-                    <p>See more ...</p>
-                    <div>
-                        <p>Genres</p>
-                        <p>{movieByID.genres.map((genre) => genre.name).join(', ')}</p>
-                        <p>Languages</p>
-                        <p>{movieByID.spoken_languages.map((language) => language.name).join(', ')}</p>
                     </div>
 
                     <a href={`https://youtube.com/watch?v=${trailerKey ? trailerKey : ''}` }target="_blank">
-                        <button>Watch Trailer</button> 
+                        <button className="button mb">Watch Trailer</button> 
                     </a>
                 </section>
             ) : <p>Loading...</p>}

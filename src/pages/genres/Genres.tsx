@@ -36,6 +36,7 @@ const Genres:React.FC = () => {
     return (  
         <>
             <SearchBar/>
+
             <div className="genres__container">
                 {genre?.genres.map((genre) => (
                     <Link onClick={() => setCurrentPage(1)} key={genre.id} to={`/home/genre/${genre.id}`}>
@@ -43,14 +44,25 @@ const Genres:React.FC = () => {
                     </Link>
                 ))}
             </div>
+
             <section className='movie-list'>
-                {
-                    moviesByID?.map((movie) => (
-                        <Link key={movie.id} to={`/detail/${movie.id}`}>
-                            <MovieItem movie={movie} />
-                        </Link>
-                    ))
-                }
+            {
+                moviesByID?.map((movie) => (
+                    <Link key={movie.id} to={`/detail/${movie.id}`}>
+                        <MovieItem movie={movie} />
+                    </Link>
+                ))
+            }
+                <div className="pagination">
+                    <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
+                        Previous
+                    </button>
+                    <span>Page {currentPage} of {totalPages}</span>
+                    <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
+                    Next
+                    </button>
+                </div>
+                    
             </section>
             <div className="pagination">
                 <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>

@@ -6,7 +6,7 @@
     padding: 10px;
 }
 
-/* Carousel Styling */
+/* Carousel */
 
 .carousel-container {
     padding-bottom: 40px;
@@ -46,4 +46,26 @@
 
 .custom-dot-list li.react-multi-carousel-dot--active button {
     background-color: red; 
+}
+
+/* End of Carousel */
+
+/*  HEadings */
+
+.trending__header {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.trending__header h3 {
+    padding: 10px;
+    margin: 100px 0px 15px 15px;
+}
+
+.genres__container{
+    max-width: 1200px;
+    margin: auto;
 }
