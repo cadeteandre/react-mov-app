@@ -6,13 +6,14 @@
 
 .poster{
     border-radius: 10px;
+    width: 75px;
 }
 
 .movie-item__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 2em;
+    margin-left: 15px;
 }
 
 .movie-item__header {
@@ -26,6 +27,7 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    width: 120%;
 }
 
 .movie-item__rating{
@@ -36,4 +38,13 @@
 .movie-item__star {
     width: 16px;
     height: 16px;
+}
+
+.fav{
+    position: absolute;
+    right: 15px;
+}
+
+.runtime{
+
 }

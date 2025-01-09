@@ -12,7 +12,6 @@ const convertRuntime = (minutes: number) => {
 }; 
 
 const MovieItem: React.FC<PropsItem> = ({ movie }) => {
-
     const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : "Unknown";
     return ( 
         <article className="movie-item">
@@ -30,7 +29,7 @@ const MovieItem: React.FC<PropsItem> = ({ movie }) => {
 
                 <div className="movie-item__header">
                     <h3 >{movie.title}</h3>
-                    <img src="/svg/Favourite.svg" alt="Add to Favourites" />
+                    <img className='fav' src="/svg/Favourite.svg" alt="Add to Favourites" />
                 </div>
 
                 <div className="movie-item__details">
@@ -45,9 +44,9 @@ const MovieItem: React.FC<PropsItem> = ({ movie }) => {
                     <p>•</p>
                     <p>{releaseYear}</p>
                     <p>•</p>
-                    <p>{movie.genres.length > 0 ? movie.genres.slice(0, 2).map((genre) => genre.name).join(", ") : "Unknown Genres"}</p>
+                    <p>{movie.genres.length > 0 ? movie.genres.slice(0, 1).map((genre) => genre.name).join(", ") : "Unknown Genres"}</p>
                     <p>•</p>
-                    <p>{convertRuntime(movie.runtime)}</p>
+                    <p className='runtime'>{convertRuntime(movie.runtime)}</p>
                 </div>
 
             </div>

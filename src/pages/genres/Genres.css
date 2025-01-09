@@ -33,15 +33,15 @@
 
 .movie-list{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     gap: 2vh;
-    margin: 25px auto;
+    padding: 20px;
 }
 
 .movie-items-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 50px;
     justify-content: center;
 }

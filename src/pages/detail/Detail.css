@@ -19,13 +19,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: -10px auto;
+    margin: -20px auto;
     padding: 0 20px;
-    max-width: 1200px;
+    max-width: 90vw;
 }
 
 .movie-info h1{
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .movie-info__div {
@@ -40,16 +41,17 @@
 
 .detail-section h3 {
     margin: 15px auto;
+    margin-top: 30px;
 }
 
 .image-container {
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
-    width: 250px;
+    width: 500px;
     height: auto;
 }
 
 .box{
-    width: 60vw;
+     width: 90vw; 
 }
 
 .font-weight{
@@ -58,7 +60,7 @@
 
 .mb {
     margin-top: 20px;
-    margin-bottom: 70px;
+    margin-bottom: 120px;
 }
 
 .flex{

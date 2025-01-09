@@ -45,8 +45,10 @@ const Home = () => {
 
     return (  
         <>
-            <h1>Welcome!</h1>
+            <h1 className="home-heading">Welcome!</h1>
             <SearchBar />
+
+                
             <div className="genres__container">
                     {genre?.genres.map((genre) => (
                         <Link key={genre.id} to={`/home/genre/${genre.id}`}>
@@ -56,7 +58,7 @@ const Home = () => {
             </div>
             <section className="trending__movies">
                 <div className="trending__header">
-                    <h3>Trending Movies</h3>
+                    <h3><b>Trending Movies</b></h3>
                     <div className="carousel__trending">
                         {trendingMovie?.results && trendingMovie.results.length > 0 ? (
                             <Carousel
