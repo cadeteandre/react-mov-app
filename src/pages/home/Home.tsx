@@ -47,9 +47,7 @@ const Home = () => {
         <>
             <h1 className="home-heading">Welcome!</h1>
             <SearchBar />
-
-                
-                        <div className="scroll-container">
+            <div className="scroll-container">
                 <div className="genres__container">
                     {genre?.genres.map((genre) => (
                         <Link key={genre.id} to={`/home/genre/${genre.id}`}>

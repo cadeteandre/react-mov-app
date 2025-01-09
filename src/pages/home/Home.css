@@ -1,11 +1,3 @@
-/* .genres__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-} */
-
 .home-heading{
     margin-top: 20px;
     margin-left: 20px;
@@ -63,7 +55,7 @@
 
 /* End of Carousel */
 
-/*  HEadings */
+/*  Headings */
 
 .trending__header {
     display: flex;
@@ -78,11 +70,6 @@
     margin: 100px 0px 15px 15px;
 }
 
-/* .genres__container{
-    max-width: 1200px;
-    margin: auto;
-} */
-
 .scroll-container {
     overflow-x: auto;
     white-space: nowrap;
@@ -95,6 +82,6 @@
 
 .genres__container a {
     display: inline-block;
-    margin-right: 10px; /* Adjust the spacing between buttons as needed */
+    margin-right: 10px; 
 }
 
