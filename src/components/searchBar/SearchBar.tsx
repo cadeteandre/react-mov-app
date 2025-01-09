@@ -26,8 +26,10 @@ const SearchBar = () => {
     return (
         <>
             <div className="search-box">
-                <input value={query} type="text" placeholder="Search Movies by Title" onChange={handleSearch} />
+                <button className="btn-search">🔎</button>
+                <input value={query} type="text" className='input-search' placeholder="Search Movies by Title" onChange={handleSearch} />
             </div>
+
             {query.length > 0 && <div className="movie-results">
                 {movies.map((movie: ITrendingMovie) => (
                     <div key={movie.id}>

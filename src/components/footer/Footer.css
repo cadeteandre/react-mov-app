@@ -2,11 +2,14 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    position: fixed;
+    bottom: 5px;
+    left: 25%;    
 }
 
 .footer div{
     display: flex;
     align-content: center;
     justify-content: space-evenly;
-    width: 15vw;
+    width: 50vw;
 }
