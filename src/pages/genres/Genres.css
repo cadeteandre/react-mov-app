@@ -4,7 +4,7 @@
     justify-content: center;
     gap: 50px;
     margin: 10vh auto;
-    width: 1200px;
+    border-radius: 20px;
 }
 
 .pagination button {
@@ -24,7 +24,7 @@
 
 .pagination span {
     font-size: 16px;
-    color: #000000;
+    color: #000;
 }
 
 .pagination button:not(:disabled):hover {
@@ -37,4 +37,11 @@
     flex-direction: column;
     gap: 2vh;
     margin: 25px auto;
+}
+
+.movie-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
 }
