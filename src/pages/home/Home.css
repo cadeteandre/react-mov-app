@@ -6,18 +6,66 @@
     padding: 10px;
 }
 
+/* Carousel */
+
+.carousel-container {
+    padding-bottom: 40px;
+}
+
 .carousel-item {
-    width: 373px; 
-    height: 269px; 
     display: flex; 
     justify-content: center; 
     align-items: center;
-    border-radius: 16px;
 }
 
 .carousel-item img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    border-radius: 16px;
+    border-radius: 10px;
+}
+
+.custom-dot-list {
+    position: relative;
+    bottom: -20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.custom-dot-list li {
+    display: inline-block;
+}
+
+.custom-dot-list li button {
+    border: none;
+    background-color: #cccccc87;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3 ease;
+}
+
+.custom-dot-list li.react-multi-carousel-dot--active button {
+    background-color: red; 
+}
+
+/* End of Carousel */
+
+/*  HEadings */
+
+.trending__header {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.trending__header h3 {
+    padding: 10px;
+    margin: 100px 0px 15px 15px;
+}
+
+.genres__container{
+    max-width: 1200px;
+    margin: auto;
 }

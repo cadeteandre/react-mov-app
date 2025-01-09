@@ -1,13 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import './Footer.css'
+import HomeSVG from '../svgFooter/HomeSVG';
 
 const Footer = () => {
     return ( 
         <footer className='footer'>
             <div>
-                <NavLink to="/home">
-                    <img src="/svg/Home.svg" alt="Home" />
+                <NavLink to="/home" className={({ isActive }) => (isActive ? 'active' : '')}>
+                    {({ isActive }) => <HomeSVG isActive={isActive} />}
                 </NavLink>
+                
                 <NavLink to="/favourite">
                     <img src="/svg/Favourite.svg" alt="Favourite" />
                 </NavLink>

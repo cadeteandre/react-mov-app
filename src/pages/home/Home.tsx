@@ -18,7 +18,7 @@ const responsive = {
         },
         desktop: {
             breakpoint: { max: 1024, min: 768 },
-            items: 4,
+            items: 3,
         },
         tablet: {
             breakpoint: { max: 768, min: 464 },
@@ -28,7 +28,7 @@ const responsive = {
             breakpoint: { max: 464, min: 0 },
             items: 1,
         },
-    };
+};
 
 const Home = () => {
 
@@ -57,16 +57,17 @@ const Home = () => {
             <section className="trending__movies">
                 <div className="trending__header">
                     <h3>Trending Movies</h3>
-                    <p>See all</p>
                     <div className="carousel__trending">
                         {trendingMovie?.results && trendingMovie.results.length > 0 ? (
                             <Carousel
-                            responsive={responsive}
-                            infinite={true}
-                            autoPlay={true}
-                            autoPlaySpeed={3000}
-                            // showDots={true}
-                            itemClass="carousel-item"
+                                responsive={responsive}
+                                infinite={true}
+                                autoPlay={true}
+                                autoPlaySpeed={3000}
+                                showDots={true}
+                                containerClass="carousel-container"
+                                dotListClass="custom-dot-list"
+                                itemClass="carousel-item"
                             >
                             {trendingMovie.results.map((movie) => (
                                 <Link key={movie.id} to={`/detail/${movie.id}`}>
