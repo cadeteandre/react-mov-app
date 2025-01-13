@@ -71,17 +71,27 @@ const Home = () => {
                                 containerClass="carousel-container"
                                 dotListClass="custom-dot-list"
                                 itemClass="carousel-item"
+                                arrows={false}
                             >
                             {trendingMovie.results.map((movie) => (
                                 <Link key={movie.id} to={`/detail/${movie.id}`}>
-                                    <img
-                                        src={
-                                        movie.poster_path
-                                            ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
-                                            : "https://via.placeholder.com/200x300?text=No+Image"
-                                        }
-                                        alt={`${movie.original_title} poster`}
-                                    />
+                                    <div className="movie-card">
+                                        <img
+                                            src={
+                                            movie.poster_path
+                                                ? `https://image.tmdb.org/t/p/w300/${movie.backdrop_path}`
+                                                : "https://via.placeholder.com/200x300?text=No+Image"
+                                            }
+                                            alt={`${movie.original_title} poster`}
+                                        />
+                                        <div className="movie-info">
+                                            <h3 className="movie-title">{movie.original_title}</h3>
+                                            <div className="movie-rating">
+                                                <img className="star-icon" src="/images/RatingStar.png" alt="star" />
+                                                <span>{movie.vote_average.toFixed(1)} / 100</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </Link>
                             ))}
                             </Carousel>

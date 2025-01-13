@@ -5,7 +5,7 @@ import "./Genres.css";
 import getMoviesByGenre from "../../utils/fetches/getMoviesByGenre";
 import { IMovieByID } from '../../../interfaces/IMovieByID';
 import MovieItem from "../../components/movieItem/MovieItem";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { IGenres } from "../../../interfaces/IGenres";
 import getAllGenres from "../../utils/fetches/getAllGenres";
 import GenreButton from "../../components/genreButton/GenreButton";
@@ -28,6 +28,10 @@ const Genres:React.FC = () => {
     }, [genreID, currentPage])
 
     const handlePageChange = (page: number) => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
         if (page > 0 && page <= totalPages) {
             setCurrentPage(page);
         }
@@ -48,21 +52,10 @@ const Genres:React.FC = () => {
             </div>
 
             <section className='movie-list'>
-                <div className="pagination">
-                        <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
-                            Previous
-                        </button>
-                        <span>Page {currentPage} of {totalPages}</span>
-                        <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
-                        Next
-                        </button>
-                </div>
                 <div className="movie-items-container">
                 {
                     moviesByID?.map((movie) => (
-                        <Link key={movie.id} to={`/detail/${movie.id}`}>
-                            <MovieItem movie={movie} />
-                        </Link>
+                        <MovieItem key={movie.id} movie={movie} />
                     ))
                 }
                 </div>
@@ -70,7 +63,6 @@ const Genres:React.FC = () => {
                     <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
                         Previous
                     </button>
-                    <span>Page {currentPage} of {totalPages}</span>
                     <button disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>
                     Next
                     </button>
