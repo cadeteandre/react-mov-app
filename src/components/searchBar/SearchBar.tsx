@@ -30,15 +30,18 @@ const SearchBar = () => {
                 <input value={query} type="text" className='input-search' placeholder="Search Movies by Title" onChange={handleSearch} />
             </div>
 
-            {query.length > 0 && <div className="movie-results">
-                {movies.map((movie: ITrendingMovie) => (
-                    <div key={movie.id}>
-                        <Link onClick={removeSearch} to={`/detail/${movie.id}`}>
-                            <h2>{movie.title}</h2>
-                        </Link>
+            {
+                query.length > 0 && 
+                    <div className="movie-results">
+                        {movies.map((movie: ITrendingMovie) => (
+                            <div key={movie.id}>
+                                <Link onClick={removeSearch} to={`/detail/${movie.id}`}>
+                                    <h2>{movie.title}</h2>
+                                </Link>
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>}
+            }
         </>
     );
 }

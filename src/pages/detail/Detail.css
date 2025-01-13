@@ -45,8 +45,10 @@
 
 .image-container {
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0));
-    width: 500px;
-    height: auto;
+    width: 100vw;
+    height: calc(100vw * 9 / 16);
+    object-fit: cover;
+    display: block;
 }
 
 .box{

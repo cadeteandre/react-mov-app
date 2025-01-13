@@ -2,6 +2,7 @@ import { IMovieByID } from '../../../interfaces/IMovieByID';
 import './MovieItem.css'
 import FavouriteIcon from '../../../public/svg/FavouriteIcon';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 interface PropsItem {
     movie: IMovieByID
@@ -20,19 +21,23 @@ const MovieItem: React.FC<PropsItem> = ({ movie }) => {
     return ( 
         <article className="movie-item">
 
-            <img className='poster'
-            src={
-                movie.poster_path
-                ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
-                : "https://via.placeholder.com/200x300?text=No+Image"
-            }
-            alt={`${movie.original_title} poster`}
-            />
-    
+            <Link to={`/detail/${movie.id}`}>
+                <img className='poster'
+                src={
+                    movie.poster_path
+                    ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+                    : "https://via.placeholder.com/200x300?text=No+Image"
+                }
+                alt={`${movie.original_title} poster`}
+                />
+            </Link>
+
             <div className="movie-item__content">
 
                 <div className="movie-item__header">
-                    <h3 >{movie.title}</h3>
+                    <Link to={`/detail/${movie.id}`}>
+                        <h3 >{movie.title}</h3>
+                    </Link>
                     <div onClick={() => setIsFavourite(!isFavourite)}>
                         <FavouriteIcon fill={isFavourite ? 'red' : 'none'} />
                     </div>
@@ -44,15 +49,13 @@ const MovieItem: React.FC<PropsItem> = ({ movie }) => {
                         <img className="movie-item__star" src="/images/RatingStar.png" alt="Rating Star" />
                         <p>{movie.vote_average.toFixed(1)}</p>
                     </div>
-
-
-
                     <p>•</p>
                     <p>{releaseYear}</p>
                     <p>•</p>
                     <p>{movie.genres.length > 0 ? movie.genres.slice(0, 1).map((genre) => genre.name).join(", ") : "Unknown Genres"}</p>
                     <p>•</p>
                     <p className='runtime'>{convertRuntime(movie.runtime)}</p>
+
                 </div>
 
             </div>
